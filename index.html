@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Paper Query</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <script type="text/javascript" src="req.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <script src="./Req.js"></script>
+    <h1>Papers Query</h1>
+    <p> A simple engine.
+    <br/> The results from Arxiv are listed in most recent -> last recent order.
+    <br/> The Paper topic will match the keys in the title of the paper
+    <br/> The Paper Keyword will match the keys in the abstract of the paper.
+    <br/> For your best experience, we advise you to:
+    <br/> Put a single word in each blank.
+    <br/> DONT input a huge number of keywords at the same time.
+    <br/> DONT query more than 3 conferences at the same time.
+    <br/> Response from arxiv may be delayed depending your network, thanks for your patience.
+    <br/> Any requests, suggestions, or bug reports are wellcomed to {yqinar [AT] connect [DOT] ust [DOT] hk} !</p>
+    <hr>
+    <h2>Paper Topic</h2>
+    <label for="Topic">Match topic words in titles.</label>
+    <div id='topic'>
+        <input type="text" id="Topics" name="Topic" required size="20">
+    </div>
+    <button id='addtopic' type="button" onclick="add_topic()">Add Topic</button>
+    <hr>
+    <h2>Paper Keyword</h2>
+    <label for="Keyword">Match keywords in abstract</label>
+    <div id='keyword'>
+        <input type="text" id="Keywords" name="Keyword" size="20">
+    </div>
+    <button id='addkeyword' type="button" onclick="add_keyword()">Add Keyword</button>
+    <hr>
+    <h2>Search Range</h2>
+    <div>
+      <input type="checkbox" id="arxiv" value="arxiv" name="source">
+      <label for="arxiv">Arxiv</label>
+      <input type="checkbox" id="nips" value="nips" name="source">
+      <label for="nips">NeurIPS 2022</label>
+      <input type="checkbox" id="cvpr" value="cvpr" name="source">
+      <label for="cvpr">CVPR 2022</label>
+      <input type="checkbox" id="iccv" value="iccv" name="source">
+      <label for="iccv">ICCV 2021</label>
+      <input type="checkbox" id="eccv" value="eccv" name="source">
+      <label for="eccv">ECCV 2022</label>
+      <input type="checkbox" id="iclr" value="iclr" name="source">
+      <label for="iclr">ICLR 2022</label>
+      <input type="checkbox" id="icml" value="icml" name="source">
+      <label for="icml">ICML 2022</label>
+      <input type="checkbox" id="miccai" value="miccai" name="source">
+      <label for="miccai">MICCAI 2022</label>
+      <input type="checkbox" id="wacv" value="wacv" name="source">
+      <label for="wacv">WACV 2022</label>
+    </div>
+    <hr>
+    <button id='query' type="button" onclick="paperquery()">Query</button>
+    <hr>
+    <details open><div id='quantative_results'></div><summary>Quantative Results</summary></details>
+    <details open><div id='paper_results'></div><summary>Paper Results</summary></details>
+    <details open><div id='arxiv_re'></div><summary>Arxiv Results</summary></details>
+  </body>
+</html>
